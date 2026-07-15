@@ -37,7 +37,6 @@
         }
     }
 
-    // Hàm tìm node trái nhất của cây con phải để thế mạng
     void Replace(TREE &p, TREE &q) {
         if (q->pLeft != NULL) {
             Replace(p, q->pLeft);
@@ -67,14 +66,13 @@
                 root = root->pLeft;
             } 
             else {
-                // Node có 2 con, tìm node trái nhất của cây con phải
                 Replace(p, root->pRight);
             }
             delete p;
         }
     }
 
-    // Hàm duyệt NLR (Pre-order: Node - Left - Right)
+    
     void NLR(TREE root) {
         if (root != NULL) {
             cout << root->key << " ";
@@ -93,8 +91,8 @@
    
     //
     int main() {
-        TREE T; //hay: TNODE* T;
-        T = NULL; // Khoi tao cay T rong, or: CreateEmptyTree(T)
+        TREE T; 
+        T = NULL; 
         CreateTree(T);
 
         int x;

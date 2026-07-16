@@ -38,9 +38,49 @@ void CreateList(LIST&L){
         Insert(L,x);
     }
 }
-
+void RemoveHead(LIST&L){
+    if(L.head==nullptr) return;
+    NODE*p=L.head;
+    L.head=L.head->next;
+    delete p;
+}
+void RemoveTail(LIST&L){
+    if(L.head==nullptr) return;
+    if(L.head==L.tail){
+        delete L.head;
+        L.head=L.tail=nullptr;
+        return;
+    }
+    NODE*temp=L.head;
+    while(temp->next!=L.tail){
+        temp=temp->next;
+    }
+    NODE*p=L.tail;
+    L.tail=temp;
+    delete p;
+    temp->next=nullptr;
+}
 void RemoveX(LIST&L,int x){
-    
+    if(L.head==nullptr) return;
+    //neu x trung voi head 
+    if(L.head->data==x){
+        RemoveHead(L);
+    }
+    else{
+        NODE*p=L.head;
+        while(p->next){
+            if(p->next->data==x){
+                if(p->next==L.tail){
+                    RemoveTail(L);
+                }
+                NODE*q=p->next;
+                p->next=q->next;
+                delete q;
+                return;
+            }
+            else p=p->next;
+        }
+    }
 }
 void PrintList(LIST L){
     if(L.head==nullptr){
@@ -54,7 +94,7 @@ void PrintList(LIST L){
     }
 }
 
-
+//
 int main() {
     LIST L;
 	int X;

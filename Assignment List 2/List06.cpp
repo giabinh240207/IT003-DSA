@@ -72,6 +72,7 @@ void RemoveX(LIST&L,int x){
             if(p->next->data==x){
                 if(p->next==L.tail){
                     RemoveTail(L);
+                    return;
                 }
                 NODE*q=p->next;
                 p->next=q->next;

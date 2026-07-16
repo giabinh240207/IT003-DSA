@@ -38,12 +38,12 @@ void InitHashTable(HASHTABLE &H, int numbucket){
         H[i]=nullptr;
     }
 }
-void Insert(HASHTABLE &H, int numbucket, int x ){
+void Insert(HASHTABLE &H,int numbucket,int x ){
     int index=HF(numbucket,x);
     AddTail(H[index],x);
 }
-void CreateHashTable(HASHTABLE&H, int&numbucket){
-    cin >> numbucket;
+void CreateHashTable(HASHTABLE &H, int& numbucket){
+    cin>>numbucket;
     InitHashTable(H,numbucket);
     int x;
     while(true){
@@ -55,44 +55,25 @@ void CreateHashTable(HASHTABLE&H, int&numbucket){
 void TraverseBucket(HASHTABLE H, int i){
     NODEPTR p=H[i];
     while(p){
-        cout << "-->"<<" " << p->key<<" ";
+        cout << "-->"<<" "<<p->key<<" ";
         p=p->pNext;
     }
-
 }
 void Traverse(HASHTABLE H, int numbucket){
     for(int i=0;i<numbucket;i++){
-        cout << i<<" " ;
+        cout << i <<" ";
         TraverseBucket(H,i);
-        cout<<endl;
+        cout << endl;
     }
 }
-int Search(HASHTABLE H, int numbucket,int x){
-    int bucket=HF(numbucket,x);
-    NODEPTR p=H[bucket];
-    while(p){
-        if(p->key==x) return bucket;
-        p=p->pNext;
-    }
-    return -1;
-}
-
 //
 
 int main(){
     HASHTABLE H;
     int numbucket;
-    int x;
 
     CreateHashTable(H, numbucket);
     Traverse(H, numbucket);
 
-    cin >> x;
-    int i=Search(H, numbucket, x);
-    cout << endl;
-    if(i==-1)
-        cout << x << " not found.";
-    else
-        cout << x << " found in bucket " << i << ".";
     return 0;
 }

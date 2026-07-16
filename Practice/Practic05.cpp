@@ -26,7 +26,7 @@ void QuickSort(int ls[], int b, int e) {
     int i=b;
     int j=e;
     int pivot=ls[(b+e)/2];
-    while(i<j){
+    while(i<=j){
         while(ls[i]<pivot) i++;
         while(ls[j]>pivot) j--;
         if(i<=j){

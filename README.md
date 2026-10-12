@@ -1,6 +1,6 @@
 <div align="center">
   
-# 🚀 IT003: Data Structures & Algorithms
+#  IT003: Data Structures & Algorithms
 
 *A rigorous deep dive into computational logic, memory efficiency, and problem-solving.*
 
